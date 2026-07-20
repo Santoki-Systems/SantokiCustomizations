@@ -21,6 +21,7 @@ page 50211 "Item API Plytix"
             {
                 field(systemId; Rec.SystemId) { Caption = 'Id'; Editable = false; }
                 field(no; Rec."No.") { Caption = 'No.'; }
+                field(commonItemNo; Rec."Common Item No.") { Caption = 'Common Item No.'; }
                 field(description; Rec.Description) { Caption = 'Description'; }
                 field(baseUnitOfMeasure; Rec."Base Unit of Measure") { Caption = 'Base Unit of Measure'; }
                 field(gtin; Rec.GTIN) { Caption = 'GTIN'; }
