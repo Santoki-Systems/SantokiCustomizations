@@ -2,7 +2,7 @@
   "id": "2c84e5c7-64e1-48bf-bdb9-a144589524d5",
   "name": "Santoki Customizations",
   "publisher": "CCLLC",
-  "version": "1.0.0.0",
+  "version": "1.0.0.6",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -14,6 +14,7 @@
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "22.0.0.0",
+  "runtime": "17.1",
   "idRanges": [
     {
       "from": 50200,
