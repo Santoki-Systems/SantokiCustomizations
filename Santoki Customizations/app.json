@@ -2,7 +2,7 @@
   "id": "2c84e5c7-64e1-48bf-bdb9-a144589524d5",
   "name": "Santoki Customizations",
   "publisher": "CCLLC",
-  "version": "1.0.0.7",
+  "version": "1.0.0.8",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -10,7 +10,14 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "id": "ec255f57-31d0-4ca2-b751-f2fa7c745abb",
+      "name": "Shopify Connector",
+      "publisher": "Microsoft",
+      "version": "28.0.0.0"
+    }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "22.0.0.0",
