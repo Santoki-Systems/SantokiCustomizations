@@ -64,6 +64,47 @@ table 50217 "Amazon Marketplace Setup"
             Caption = 'Process Orders From';
             ToolTip = 'Specifies the go-live point for this marketplace. Orders placed before it stay with the previous system and are held here, not created again.';
         }
+        // Returns go live on their own date, separate from orders, so returns can run while
+        // Suite Engine still handles orders.
+        field(10; "Process Returns From"; Date)
+        {
+            Caption = 'Process Returns From';
+            ToolTip = 'Specifies the go-live date for customer returns on this marketplace. Returns processed by Amazon before it belong to the monthly manual document and are ignored. Leave blank to hold every return.';
+        }
+        field(11; "Unsellable Location Code"; Code[10])
+        {
+            Caption = 'Unsellable Location Code';
+            TableRelation = Location;
+            ToolTip = 'Specifies the location for returned units Amazon can''t sell (its unsellable inventory), so they never count as available stock.';
+        }
+        field(12; "Returns Jnl. Template Name"; Code[10])
+        {
+            Caption = 'Returns Jnl. Template Name';
+            TableRelation = "Item Journal Template".Name where(Type = const(Item), Recurring = const(false));
+            ToolTip = 'Specifies the item journal template returns are posted through.';
+
+            trigger OnValidate()
+            begin
+                if Rec."Returns Jnl. Template Name" <> xRec."Returns Jnl. Template Name" then
+                    Rec."Returns Jnl. Batch Name" := '';
+            end;
+        }
+        field(13; "Returns Jnl. Batch Name"; Code[10])
+        {
+            Caption = 'Returns Jnl. Batch Name';
+            TableRelation = "Item Journal Batch".Name where("Journal Template Name" = field("Returns Jnl. Template Name"));
+            ToolTip = 'Specifies the item journal batch returns are posted through. Use a batch kept for Amazon returns, with no No. Series. When returns post automatically, each run expects it to be empty.';
+        }
+        field(14; "Return Cost Rule"; Enum "Amazon Return Cost Rule")
+        {
+            Caption = 'Return Cost Rule';
+            ToolTip = 'Specifies the cost returned units come back at: the item''s current unit cost, or zero.';
+        }
+        field(15; "Post Returns Automatically"; Boolean)
+        {
+            Caption = 'Post Returns Automatically';
+            ToolTip = 'Specifies whether each run posts the returns journal. While this is off, the journal is built and left in the batch for review, which is how the side-by-side run works.';
+        }
     }
 
     keys

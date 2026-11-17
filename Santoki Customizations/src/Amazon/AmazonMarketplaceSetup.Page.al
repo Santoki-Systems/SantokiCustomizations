@@ -22,6 +22,12 @@ page 50224 "Amazon Marketplace Setup"
                 field("Currency Code"; Rec."Currency Code") { }
                 field("Clearing G/L Account No."; Rec."Clearing G/L Account No.") { }
                 field("Shipping G/L Account No."; Rec."Shipping G/L Account No.") { }
+                field("Process Returns From"; Rec."Process Returns From") { }
+                field("Unsellable Location Code"; Rec."Unsellable Location Code") { }
+                field("Returns Jnl. Template Name"; Rec."Returns Jnl. Template Name") { }
+                field("Returns Jnl. Batch Name"; Rec."Returns Jnl. Batch Name") { }
+                field("Return Cost Rule"; Rec."Return Cost Rule") { }
+                field("Post Returns Automatically"; Rec."Post Returns Automatically") { }
             }
         }
     }
